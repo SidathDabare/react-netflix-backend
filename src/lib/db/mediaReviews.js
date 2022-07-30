@@ -26,11 +26,17 @@ export const saveNewReview = async (imdbID, newReviewData) => {
 export const findReviewById = async (imdbID, reviewId) => {
   const { reviews } = await findMediaById(imdbID)
 
-  const foundReview = reviews.find((review) => review.id === reviewId)
+  const foundReview = reviews.find((review) => review.reviewId === reviewId)
 
   return foundReview
 }
+export const findMediasReviewBySKU = async (sku) => {
+  const medias = await getMedia()
 
+  const foundMedia = medias.find((media) => media.imdbID === sku)
+
+  return foundMedia
+}
 export const findReviewByIdAndUpdate = async (imbdID, reviewId, updates) => {
   const medias = await getMedia()
   const index = medias.findIndex((media) => media.imdbID === imbdID)

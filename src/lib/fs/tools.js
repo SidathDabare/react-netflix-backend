@@ -14,5 +14,5 @@ const mediasJSONPath = join(
 export const getMedia = () => readJSON(mediasJSONPath)
 export const writeMedia = (productsArray) =>
   writeJSON(mediasJSONPath, productsArray)
-export const saveProducts = (fileName, contentAsABuffer) =>
-  writeFile(join(productsPublicFolderPath, fileName), contentAsABuffer)
+// export const saveProducts = (fileName, contentAsABuffer) =>
+//   writeFile(join(productsPublicFolderPath, fileName), contentAsABuffer)

@@ -17,7 +17,7 @@ const cloudinaryUploader = multer({
 
 const filesRouter = express.Router()
 
-filesRouter.post("/cloudinary", cloudinaryUploader, async (req, res, next) => {
+filesRouter.post("/:id/poster", cloudinaryUploader, async (req, res, next) => {
   try {
     console.log("REQ FILE: ", req.file)
 

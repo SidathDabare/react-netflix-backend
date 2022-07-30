@@ -32,6 +32,13 @@ export const searchByType = async (str) => {
     return null
   }
 }
+export const findMediasBySKU = async (sku) => {
+  const medias = await getMedia()
+
+  const foundMedia = medias.find((media) => media.imdbID === sku)
+
+  return foundMedia
+}
 
 export const findMediaById = async (mediaId) => {
   const medias = await getMedia()
@@ -61,6 +68,7 @@ export const findMediaByIdAndUpdate = async (mediaId, updates) => {
 
 export const findMediaByIdAndDelete = async (mediaId) => {
   const medias = await getMedia()
+
   const remainingMedia = medias.filter((media) => media.imdbID !== mediaId)
 
   if (medias.length === remainingMedia.length)

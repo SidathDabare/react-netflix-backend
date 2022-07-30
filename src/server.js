@@ -45,7 +45,7 @@ server.use(cors())
 server.use(express.json())
 // ****************************************** ENDPOINTS ****************************************
 server.use("/medias", mediaRouter)
-server.use("/file", filesRouter)
+server.use("/medias", filesRouter)
 
 // ***************************************** ERROR HANDLERS ************************************
 server.use(badRequestHandler)

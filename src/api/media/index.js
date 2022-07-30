@@ -16,17 +16,31 @@ import {
   findMediaByIdAndDelete,
   searchByType,
 } from "../../lib/db/medias.js"
+import {
+  checksMediaReviewSchema,
+  checksMediaReviewUpdateSchema,
+} from "./mediaReviewValidation.js"
+import {
+  checksMediaSchema,
+  checksMediaUpdateSchema,
+  checkValidationResult,
+} from "./mediaValidation.js"
 
 const mediaRouter = express.Router()
 
-mediaRouter.post("/", async (req, res, next) => {
-  try {
-    const imbdID = await saveNewMedia(req.body)
-    res.status(201).send({ imbdID })
-  } catch (error) {
-    next(error)
+mediaRouter.post(
+  "/",
+  checksMediaSchema,
+  checkValidationResult,
+  async (req, res, next) => {
+    try {
+      const imbdID = await saveNewMedia(req.body)
+      res.status(201).send({ imbdID })
+    } catch (error) {
+      next(error)
+    }
   }
-})
+)
 
 mediaRouter.get("/", async (req, res, next) => {
   try {
@@ -62,18 +76,26 @@ mediaRouter.get("/:id", async (req, res, next) => {
   }
 })
 
-mediaRouter.put("/:id", async (req, res, next) => {
-  try {
-    const product = await findMediaByIdAndUpdate(req.params.id, req.body)
-    if (product) {
-      res.send(product)
-    } else {
-      next(createHttpError(404, `Product with id ${req.params.id} not found!`))
+mediaRouter.put(
+  "/:id",
+
+  checksMediaUpdateSchema,
+  checkValidationResult,
+  async (req, res, next) => {
+    try {
+      const product = await findMediaByIdAndUpdate(req.params.id, req.body)
+      if (product) {
+        res.send(product)
+      } else {
+        next(
+          createHttpError(404, `Product with id ${req.params.id} not found!`)
+        )
+      }
+    } catch (error) {
+      next(error)
     }
-  } catch (error) {
-    next(error)
   }
-})
+)
 
 mediaRouter.delete("/:id", async (req, res, next) => {
   try {
@@ -86,18 +108,25 @@ mediaRouter.delete("/:id", async (req, res, next) => {
 
 // Meedia  Reviews------------------
 
-mediaRouter.post("/:id/reviews", async (req, res, next) => {
-  try {
-    const updatedMedia = await saveNewReview(req.params.id, req.body)
-    if (updatedMedia) {
-      res.send(updatedMedia)
-    } else {
-      next(createHttpError(404, `Product with id ${req.params.id} not found!`))
+mediaRouter.post(
+  "/:id/reviews",
+  checksMediaReviewSchema,
+  checkValidationResult,
+  async (req, res, next) => {
+    try {
+      const updatedMedia = await saveNewReview(req.params.id, req.body)
+      if (updatedMedia) {
+        res.send(updatedMedia)
+      } else {
+        next(
+          createHttpError(404, `Product with id ${req.params.id} not found!`)
+        )
+      }
+    } catch (error) {
+      next(error)
     }
-  } catch (error) {
-    next(error)
   }
-})
+)
 
 mediaRouter.get("/:id/reviews", async (req, res, next) => {
   try {
@@ -123,18 +152,23 @@ mediaRouter.get("/:id/reviews/:reviewId", async (req, res, next) => {
   }
 })
 
-mediaRouter.put("/:id/reviews/:reviewId", async (req, res, next) => {
-  try {
-    const updatedReview = await findReviewByIdAndUpdate(
-      req.params.id,
-      req.params.reviewId,
-      req.body
-    )
-    res.send(updatedReview)
-  } catch (error) {
-    next(error)
+mediaRouter.put(
+  "/:id/reviews/:reviewId",
+  checksMediaReviewUpdateSchema,
+  checkValidationResult,
+  async (req, res, next) => {
+    try {
+      const updatedReview = await findReviewByIdAndUpdate(
+        req.params.id,
+        req.params.reviewId,
+        req.body
+      )
+      res.send(updatedReview)
+    } catch (error) {
+      next(error)
+    }
   }
-})
+)
 
 mediaRouter.delete("/:id/reviews/:reviewId", async (req, res, next) => {
   try {
