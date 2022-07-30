@@ -1,0 +1,50 @@
+[
+  {
+    "title": "crazfdgfgfhfy",
+    "year": "2001",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTM5MzcwOTg4MF5BMl5BanBnXkFtZTgwOTQwMzQxMDE@._V1_SX300.jpg",
+    "createdAt": "2022-07-29T16:24:13.918Z",
+    "imdbID": "lbtwankl66oczmn",
+    "reviews": [
+      {
+        "message": "Hellokkk",
+        "rate": "4",
+        "reviewId": "lbtwdncl66p6svd",
+        "createdAt": "2022-07-29T16:27:53.247Z",
+        "updatedAt": "2022-07-30T09:26:12.098Z"
+      }
+    ]
+  },
+  {
+    "title": "crazfdgfgfhfdfdfdfdfdfy",
+    "year": "2001",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTM5MzcwOTg4MF5BMl5BanBnXkFtZTgwOTQwMzQxMDE@._V1_SX300.jpg",
+    "createdAt": "2022-07-29T16:24:46.970Z",
+    "imdbID": "lbtwankl66odp4q",
+    "reviews": [
+      {
+        "message": "Helloooo11111",
+        "rate": "2",
+        "reviewId": "lbtwaq8l67p4d6e",
+        "createdAt": "2022-07-30T09:33:17.365Z"
+      },
+      {
+        "message": "Hellooooggggg",
+        "rate": "2",
+        "reviewId": "lbtwaq8l67p4z1q",
+        "createdAt": "2022-07-30T09:33:45.710Z"
+      }
+    ]
+  },
+  {
+    "title": "crazfdgfgfhfdfdfdfdfdfy",
+    "year": "2001",
+    "type": "movie",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTM5MzcwOTg4MF5BMl5BanBnXkFtZTgwOTQwMzQxMDE@._V1_SX300.jpg",
+    "createdAt": "2022-07-30T09:34:10.923Z",
+    "imdbID": "lbtwaq8l67p5ii4",
+    "reviews": []
+  }
+]
